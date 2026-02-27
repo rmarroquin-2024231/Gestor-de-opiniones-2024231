@@ -1,37 +1,61 @@
 import Publication from './publication.model.js'
+import mongoose from 'mongoose'
 
-const validate = ({ title, category, text }) => {
-  if (!title || !category || !text) {
-    throw new Error('All fields are required')
+const validateData = ({ title, category, content, date }) => {
+  if (!title || !category || !content || !date) {
+    throw new Error('Todos los campos son obligatorios')
+  }
+
+  if (isNaN(Date.parse(date))) {
+    throw new Error('Fecha inválida')
   }
 }
 
-export const create = async (data, userId) => {
-  validate(data)
-  return Publication.create({ ...data, author: userId })
+export const createPublication = async (data, userId) => {
+  validateData(data)
+
+  return await Publication.create({
+    ...data,
+    author: userId
+  })
 }
 
-export const getAll = async () => Publication.find()
-
-export const getById = async (id) => {
-  const pub = await Publication.findById(id)
-  if (!pub) throw new Error('Not found')
-  return pub
+export const getPublications = async () => {
+  return await Publication.find()
 }
 
-export const update = async (id, data, userId) => {
-  const pub = await getById(id)
-  if (pub.author.toString() !== userId) {
-    throw new Error('Forbidden')
+export const getPublicationById = async (id) => {
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    throw new Error('ID inválido')
   }
-  validate(data)
-  return Publication.findByIdAndUpdate(id, data, { new: true })
+
+  const publication = await Publication.findById(id)
+
+  if (!publication) {
+    throw new Error('Publicación no encontrada')
+  }
+
+  return publication
 }
 
-export const remove = async (id, userId) => {
-  const pub = await getById(id)
-  if (pub.author.toString() !== userId) {
-    throw new Error('Forbidden')
+export const updatePublication = async (id, data, userId) => {
+  const publication = await getPublicationById(id)
+
+  if (publication.author !== userId) {
+    throw new Error('No autorizado')
   }
-  await pub.deleteOne()
+
+  validateData(data)
+
+  return await Publication.findByIdAndUpdate(id, data, { new: true })
+}
+
+export const deletePublication = async (id, userId) => {
+  const publication = await getPublicationById(id)
+
+  if (publication.author !== userId) {
+    throw new Error('No autorizado')
+  }
+
+  await publication.deleteOne()
 }

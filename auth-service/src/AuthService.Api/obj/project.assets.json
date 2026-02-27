@@ -4686,11 +4686,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Informatica\\Documents\\GestorDeOpiniones2024231\\auth-service\\src\\AuthService.Api\\AuthService.Api.csproj",
+      "projectUniqueName": "C:\\Users\\Informatica\\Documents\\Gestor-de-opiniones-2024231\\auth-service\\src\\AuthService.Api\\AuthService.Api.csproj",
       "projectName": "AuthService.Api",
-      "projectPath": "C:\\Users\\Informatica\\Documents\\GestorDeOpiniones2024231\\auth-service\\src\\AuthService.Api\\AuthService.Api.csproj",
+      "projectPath": "C:\\Users\\Informatica\\Documents\\Gestor-de-opiniones-2024231\\auth-service\\src\\AuthService.Api\\AuthService.Api.csproj",
       "packagesPath": "C:\\Users\\Informatica\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Informatica\\Documents\\GestorDeOpiniones2024231\\auth-service\\src\\AuthService.Api\\obj\\",
+      "outputPath": "C:\\Users\\Informatica\\Documents\\Gestor-de-opiniones-2024231\\auth-service\\src\\AuthService.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Informatica\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -4705,11 +4705,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Informatica\\Documents\\GestorDeOpiniones2024231\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj": {
-              "projectPath": "C:\\Users\\Informatica\\Documents\\GestorDeOpiniones2024231\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj"
+            "C:\\Users\\Informatica\\Documents\\Gestor-de-opiniones-2024231\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj": {
+              "projectPath": "C:\\Users\\Informatica\\Documents\\Gestor-de-opiniones-2024231\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj"
             },
-            "C:\\Users\\Informatica\\Documents\\GestorDeOpiniones2024231\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj": {
-              "projectPath": "C:\\Users\\Informatica\\Documents\\GestorDeOpiniones2024231\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj"
+            "C:\\Users\\Informatica\\Documents\\Gestor-de-opiniones-2024231\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj": {
+              "projectPath": "C:\\Users\\Informatica\\Documents\\Gestor-de-opiniones-2024231\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj"
             }
           }
         }
