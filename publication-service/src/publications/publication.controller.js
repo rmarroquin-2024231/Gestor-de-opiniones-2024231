@@ -1,71 +1,96 @@
-'use strict';
+'use strict'
 
-import Publication from './publication.model.js';
+import * as publicationService from './publication.service.js'
 
-const createPublication = async (req, res) => {
-    try {
-        const { title, category, content, author, date } = req.body;
+export const createPublication = async (req, res) => {
+  try {
+    const publication = await publicationService.createPublication(
+      req.body,
+      req.user.id   
+    )
 
-        if (!title || !category || !content || !author || !date) {
-            return res.status(400).json({ message: 'Todos los campos son obligatorios' });
-        }
+    res.status(201).json(publication)
 
-        const publication = new Publication({
-            title,
-            category,
-            content,
-            author,
-            date
-        });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message
+    })
+  }
+}
 
-        await publication.save();
-        return res.status(201).json(publication);
+export const getPublications = async (req, res) => {
+  try {
+    const publications = await publicationService.getPublications()
+    res.json(publications)
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    })
+  }
+}
 
-    } catch (error) {
-        return res.status(500).json({ message: error.message });
+export const getPublicationById = async (req, res) => {
+  try {
+    const publication = await publicationService.getPublicationById(req.params.id)
+    res.json(publication)
+  } catch (error) {
+    res.status(404).json({
+      success: false,
+      message: error.message
+    })
+  }
+}
+
+export const updatePublication = async (req, res) => {
+  try {
+    const publication = await publicationService.updatePublication(
+      req.params.id,
+      req.body,
+      req.user.id   
+    )
+
+    res.json(publication)
+
+  } catch (error) {
+    if (error.message === 'No autorizado') {
+      return res.status(403).json({
+        success: false,
+        message: error.message
+      })
     }
-};
 
-const getPublications = async (req, res) => {
-    const publications = await Publication.find();
-    return res.json(publications);
-};
+    res.status(400).json({
+      success: false,
+      message: error.message
+    })
+  }
+}
 
-const getPublicationById = async (req, res) => {
-    const publication = await Publication.findById(req.params.id);
-    if (!publication) return res.status(404).json({ message: 'No encontrada' });
-    return res.json(publication);
-};
+export const deletePublication = async (req, res) => {
+  try {
+    await publicationService.deletePublication(
+      req.params.id,
+      req.user.id   
+    )
 
-const updatePublication = async (req, res) => {
-    const publication = await Publication.findById(req.params.id);
-    if (!publication) return res.status(404).json({ message: 'No encontrada' });
+    res.json({
+      success: true,
+      message: 'Publicación eliminada correctamente'
+    })
 
-    if (publication.author !== req.body.author) {
-        return res.status(403).json({ message: 'No autorizado' });
+  } catch (error) {
+    if (error.message === 'No autorizado') {
+      return res.status(403).json({
+        success: false,
+        message: error.message
+      })
     }
 
-    Object.assign(publication, req.body);
-    await publication.save();
-    return res.json(publication);
-};
-
-const deletePublication = async (req, res) => {
-    const publication = await Publication.findById(req.params.id);
-    if (!publication) return res.status(404).json({ message: 'No encontrada' });
-
-    if (publication.author !== req.body.author) {
-        return res.status(403).json({ message: 'No autorizado' });
-    }
-
-    await publication.deleteOne();
-    return res.json({ message: 'Eliminada' });
-};
-
-export default {
-    createPublication,
-    getPublications,
-    getPublicationById,
-    updatePublication,
-    deletePublication
-};
+    res.status(400).json({
+      success: false,
+      message: error.message
+    })
+  }
+}

@@ -18,7 +18,7 @@
             });
 
             mongoose.connection.on('open', () => {
-                console.log('MongoDB | conectado a la base de datos FoodLine');
+                console.log('MongoDB | conectado a la base de datos GDO');
             });
 
             mongoose.connection.on('reconnected', () => {

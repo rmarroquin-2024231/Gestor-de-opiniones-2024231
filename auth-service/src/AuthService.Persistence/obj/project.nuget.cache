@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+cWRaEr5AOw=",
+  "dgSpecHash": "Am6HegbSEbE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Informatica\\Documents\\GestorDeOpiniones2024231\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj",
+  "projectFilePath": "C:\\Users\\Informatica\\Documents\\Gestor-de-opiniones-2024231\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Informatica\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
     "C:\\Users\\Informatica\\.nuget\\packages\\efcore.namingconventions\\9.0.0\\efcore.namingconventions.9.0.0.nupkg.sha512",

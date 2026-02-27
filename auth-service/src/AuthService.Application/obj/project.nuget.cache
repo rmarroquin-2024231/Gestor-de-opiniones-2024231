@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+uOBvwADG3w=",
+  "dgSpecHash": "1EstUUrZzDw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Informatica\\Documents\\GestorDeOpiniones2024231\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj",
+  "projectFilePath": "C:\\Users\\Informatica\\Documents\\Gestor-de-opiniones-2024231\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Informatica\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
     "C:\\Users\\Informatica\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
